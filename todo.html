@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+    <div class="container-fluid">
+
+        <div class="container">
+
+<h2 class="text-center jumbotron "><p class="glyphicon glyphicon-list-alt"></p> Todo List
+</h2>
+
+
+
+<div class="alert alert-info" >
+
+<!-- <blockquote> -->
+<div ng-repeat="x in todoList" class="well well-sm lead " ng-style="cl" >
+     <span ng-bind="x.todoText"></span>  
+
+
+    <script type="text/javascript">
+        var d = new Date(); // for now
+var h=d.getHours(); // => 9
+var m=d.getMinutes(); // =>  30
+var s=d.getSeconds();
+
+document.write(h+":"+m);
+    </script>
+
+
+
+
+
+<div class="text-right">
+   <button class="btn btn-success" ng-click="dn($index)">Done</button>
+  <button class="btn btn-warning" ng-click="ndn($index)">Not Done</button>
+
+
+  
+
+
+  <button class="btn btn-danger"  ng-click="remove($index)" style=""> Delete</button>
+</div>
+</div>
+<!-- </blockquote> -->
+
+ </div>
+
+
+
+
+
+
+<form ng-submit="todoAdd()" >
+    <input type="text" required="required" ng-model="todoInput" size="50" placeholder="Add New Note" class="form-control">
+
+    <br>
+
+  <p><button  class="btn btn-block btn-primary" ><strong>ADD <p class="glyphicon glyphicon-plus"></strong></button></p>
+ </form>
+  
+    <br>
+
+<strong>
+ <div class="text-center">
+</strong>
+
+
+
+</div>
+
+</div>
+
+
+<script>
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Demo Message'}];
+
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput});
+        $scope.todoInput = "";
+    };
+
+    $scope.remove = function(x) {
+        $scope.todoList.splice(x,1);
+        
+    };
+    $scope.dn=function(x){
+
+
+
+        $scope.cl = {
+        "background-color" : "#CCF2CC",
+
+     }
+ }
+
+  $scope.ndn=function(x){
+
+        $scope.cl = {
+        "background-color" : "#FFE2BF",
+
+
+     }
+ }
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>
